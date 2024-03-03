@@ -31,15 +31,15 @@ gem 'cssbundling-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'aasm'
+gem 'i18n-tasks'
 gem 'jbuilder'
 gem 'kaminari'
 gem 'pundit'
+gem 'rails-i18n'
 gem 'ransack'
 gem 'rollbar'
 gem 'simple_form'
 gem 'slim'
-gem 'rails-i18n'
-gem 'i18n-tasks'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -70,12 +70,10 @@ gem 'image_processing', '~> 1.2'
 gem 'mini_magick', '~> 4.0'
 
 group :development, :test do
-  gem 'debase'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'faker'
   gem 'pry'
-  gem 'ruby-debug-ide'
 end
 
 group :development do
