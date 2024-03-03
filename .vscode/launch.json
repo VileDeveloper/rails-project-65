@@ -1,0 +1,98 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Development",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "pathToBundler": "/Users/viledev/.rvm/rubies/ruby-3.2.2/bin/bundle",
+            "pathToRDebugIDE": "/Users/viledev/.rvm/gems/ruby-3.2.2/bin/rdebug-ide",
+            "useBundler": true,
+            "program": "${workspaceRoot}/bin/rails",
+            "args": [
+                "server",
+                "-p",
+                "3000"
+            ],
+            "showDebuggerOutput": true
+        },
+        {
+            "name": "Production",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/bin/rails",
+            "args": [
+                "server",
+                "-p",
+                "3000"
+            ],
+            "env": {
+                "RAILS_ENV": "production",
+                "SERVE_STATIC_REACT": "true"
+            }
+        },
+        {
+            "name": "Run RSpec - all",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "/path/to/rubygem/bin/rspec",
+            "args": [
+                "--pattern",
+                "${workspaceRoot}/spec/**/*_rspec.rb"
+            ]
+        },
+        {
+            "name": "Debug RSpec - open spec file",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "pathToBundler": "/Users/viledev/.rvm/rubies/ruby-3.2.2/bin/bundle",
+            "pathToRDebugIDE": "/Users/viledev/.rvm/gems/ruby-3.2.2/bin/rdebug-ide",
+            "debuggerPort": "1235",
+            "program": "/Users/viledev/.rvm/gems/ruby-3.2.2/bin/rspec",
+            "args": [
+                "./spec/requests/trainings/tasks/answer_attempt_spec.rb"
+            ]
+        },
+        {
+            "name": "Debug RSpec - open spec file on a certain line",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "useBundler": true,
+            "pathToBundler": "/path/to/rubygem/wrappers/bundle",
+            "pathToRDebugIDE": "/path/to/rubygem/gems/ruby-debug-ide-x.x.x/bin/rdebug-ide",
+            "debuggerPort": "1235",
+            "program": "/path/to/rubygem/bin/rspec",
+            "args": [
+                "${file}:${lineNumber}"
+            ]
+        },
+        {
+            "name": "Debug RSpec - direct file",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "pathToBundler": "/Users/viledev/.rvm/rubies/ruby-3.2.2/bin/bundle",
+            "pathToRDebugIDE": "/Users/viledev/.rvm/gems/ruby-3.2.2/bin/rdebug-ide",
+            "debuggerPort": "1235",
+            "program": "rake",
+            "args": [
+                "test"
+            ]
+        },
+        {
+            "name": "Run MiniTest",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/bin/rails",
+            "args": [
+                "test"
+            ]
+        },
+    ]
+}

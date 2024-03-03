@@ -1,0 +1,31 @@
+h1
+  = t('.title')
+hr
+  .p-3.bg-light
+    = search_form_for @q do |f|
+      .row.my-2
+        .col-6
+          = f.input :title_cont, label: false
+        .col-4
+          = f.input :category_id_eq, as: :select, collection: Category.all, label: false
+        .col-2
+          = f.submit t('views.buttons.search'), class: 'btn btn-primary me-2'
+          = link_to t('views.buttons.reset'), url_for, class: 'btn btn-outline-primary'
+
+  .row.mt-2
+    - @bulletins.each do |bulletin|
+      .col-3.pt-2
+        .card.shadow-sm
+          - if bulletin.image_attachment
+            = image_tag bulletin.image, class: 'card-img-top x-object-fit-cover', height: '200'
+          - else
+              svg.bd-placeholder-img.card-img-top width="100%" height="200"
+                rect width="100%" height="100%" fill="#868e96"
+          .card-body
+            = link_to bulletin_path(bulletin) do
+              h5.card-title
+                = bulletin.title
+            h6.card-subtitle.mb-2.text-muted
+              = time_ago_in_words(bulletin.created_at.to_time)
+
+    = paginate @bulletins

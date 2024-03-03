@@ -1,0 +1,29 @@
+.col-md-9
+  h1.h2.mb-4
+    = t('.title')
+  .row.mt-2
+    table.table.table-borderless
+      thead
+        tr
+          th
+            = t('web.admin.bulletins.index.name')
+          th
+            = t('web.admin.bulletins.index.created_at')
+          th
+            = t('web.admin.bulletins.index.column_actions')
+      tbody
+        - @bulletins.each do |bulletin|
+          tr
+            td
+              = link_to bulletin.title, bulletin_path(bulletin)
+            td
+              | #{time_ago_in_words(bulletin.created_at.to_time)}
+            td
+              - if bulletin.state == 'under_moderation'
+                = link_to t('web.admin.bulletins.index.actions.publish'), publish_admin_bulletin_path(bulletin), class: 'me-2',
+                  data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_publish') }
+                = link_to t('web.admin.bulletins.index.actions.reject'), reject_admin_bulletin_path(bulletin), class: 'me-2',
+                        data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_reject') }
+              = link_to t('web.admin.bulletins.index.actions.archive'), archive_bulletin_path(bulletin), data: { turbo_method: 'patch',
+                      turbo_confirm: t('web.admin.bulletins.index.confirm_archive') }, class: 'me-2 text-danger'
+  = paginate @bulletins

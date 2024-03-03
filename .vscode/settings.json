@@ -1,0 +1,38 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "stoege_development",
+            "database": "stoege_development",
+            "username": "viledev"
+        }
+    ],
+    "workbench.colorCustomizations": {
+        "terminal.ansiBlack": "#1E1E1E",
+        "terminal.ansiRed": "#F44747",
+        "terminal.ansiGreen": "#84F088",
+        "terminal.ansiYellow": "#DCCF63",
+        "terminal.ansiBlue": "#62A2FF",
+        "terminal.ansiMagenta": "#C586C0",
+        "terminal.ansiCyan": "#5CCFE6",
+        "terminal.ansiWhite": "#D4D4D4",
+        "terminal.ansiBrightBlack": "#888888",
+        "terminal.ansiBrightRed": "#FF5C5C",
+        "terminal.ansiBrightGreen": "#8CFF6B",
+        "terminal.ansiBrightYellow": "#E8E867",
+        "terminal.ansiBrightBlue": "#6BA8F2",
+        "terminal.ansiBrightMagenta": "#D974D7",
+        "terminal.ansiBrightCyan": "#4CDFE8",
+        "terminal.ansiBrightWhite": "#FFFFFF",
+        "terminal.background": "#1E1E1E",
+        "terminal.foreground": "#D4D4D4",
+        "terminalCursor.background": "#D4D4D4",
+        "terminalCursor.foreground": "#D4D4D4"
+    }
+    
+    
+}

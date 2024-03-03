@@ -1,0 +1,29 @@
+.container.mb-2
+  .d-flex.flex-wrap.align-items-center.py-2.border-bottom
+    .navbar.navbar-expand-md.navbar-light.me-auto
+      = link_to t('application.title'), root_path, class: 'navbar-brand me-md-4'
+      #navbarToggler.collapse.navbar-collapse
+        ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
+          li.nav-item.me-2
+            = link_to t('layouts.header.main_page'), root_path, class: 'nav-link text-dark'
+          li.nav-item.me-2
+            - if current_user
+              = link_to t('layouts.header.my_bulletins'), profile_path, class: 'nav-link text-dark'
+              li.nav-item.me-2
+                a.nav-link.text-dark[href="/bulletins/new"]
+                  = t('layouts.header.add_bulletin')
+    ul.nav.nav-pills
+      - if current_user
+        li.nav-item.me-2
+          = link_to t('layouts.header.admin'), admin_root_path, class: 'nav-link text-dark'
+        li.nav-item.me-2
+          = button_to t('layouts.header.sign_out'),
+                      auth_logout_path,
+                      method: :delete,
+                      class: 'nav-link text-dark',
+                      data: { turbo: 'false' }
+      - else
+        li.nav-item.me-2
+          = button_to auth_request_path(:github), method: :post, class: 'nav-link text-dark', data: { turbo: 'false' } do
+            span.bi.bi-github.me-2
+            = t('layouts.header.login')

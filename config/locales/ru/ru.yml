@@ -1,0 +1,136 @@
+ru:
+  hexlet: Хекслет
+  application:
+    title: Доска объявлений
+  layouts:
+    header:
+      main_page: Главная
+      my_bulletins: Мои объявления
+      add_bulletin: Добавить
+      admin: Админка
+      login: Войти
+      sign_out: Выйти
+  navbar:
+    bulletin_on_moderation: Объявления на модерации
+    all_bulletins: Все объявления
+    all_categories: Все категории
+  pundit:
+    bulletin_policy:
+      only_for_admin: Эта секция доступна только для администраторов
+      login_or_registration: Вам необходимо войти в систему или зарегистрироваться для выполнения этого действия
+  activerecord:
+    models:
+      bulletin: Объявление
+      category: Категория
+      user: Пользователь
+    attributes:
+      bulletin:
+        title: Заголовок
+        description: Описание
+        category: Категория
+        image: Изображение
+        state/under_moderation: На модерации
+        state/rejected: Возвращено
+        state/draft: Черновик
+        state/published: Опубликовано
+        state/archived: В архиве
+      category:
+        name: Название
+  web:
+    auth:
+      callback:
+        success: Успешно
+      logout:
+        success: Успешно
+    bulletins:
+      index:
+        title: Объявления
+      new:
+        add_bulletin: Добавить объявление
+      edit:
+        title: Редактировать объявление
+      create:
+        success: Объявление было создано
+      update:
+        success: Объявление было обновлено
+      archive:
+        success: Объявление отправилось в архив
+        failure: Не удалось отправить объявление в архив
+      to_moderate:
+        success: Объявление отправлено на модерацию
+        failure: Не удалось отправить объявление на модерацию
+    profiles:
+      show:
+        my_bulletins: Мои объявления
+        add_bulletin: Добавить объявление
+        name: Название
+        state: Состояние
+        published_at: Дата создания
+        actions: Действия
+        archive: В архив
+        confirm_archive: Подтвердить архивацию
+        confirm_moderate: Подтвердить отправку на модерацию
+        edit: Редактировать
+        show: Показать
+        to_moderate: На модерацию
+    admin:
+      home:
+        index:
+          title: Объявления на модерации
+      bulletins:
+        index:
+          name: Название
+          state: Состояние
+          created_at: Дата создания
+          column_actions: Действия
+          actions:
+            publish: Опубликовать
+            reject: Вернуть
+            archive: В архив
+            show: Показать
+          confirm_archive: Подтвердить архивацию
+          confirm_reject: Подтвердить возврат
+          confirm_publish: Подтвердить публикацию
+        publish:
+          success: Объявление было успешно опубликовано
+          error: Не удалось опубликовать
+        reject:
+          success: Объявление было успешно возвращено
+          error: Не удалось вернуть
+        archive:
+          success: Объявление было успешно заархивировано
+          error: Не удалось заархивировать
+      categories:
+        create:
+          success: Категория была успешно создана
+        update:
+          success: Категория была успешно изменена
+        destroy:
+          has_bulletins: Не удалось удалить категорию, так как она содержит объявления
+          success: Категория была успешно удалена
+        index:
+          title: Категории
+          add: Добавить категорию
+          id: ID
+          name: Название
+          column_actions: Действия
+          actions:
+            edit: Редактировать
+            delete: Удалить
+          confirm_delete: Подтвердить удаление
+        edit:
+          title: Редактировать категорию
+        new:
+          title: Новая категория
+  helpers:
+    submit:
+      category:
+        create: Создать категорию
+        update: Сохранить категорию
+      bulletin:
+        create: Создать объявление
+        update: Сохранить объявление
+  views:
+    buttons:
+      search: Искать
+      reset: Сброс

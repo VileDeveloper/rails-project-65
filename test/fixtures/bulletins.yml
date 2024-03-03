@@ -1,0 +1,20 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Batman
+  description: Batman from night
+  user: admin
+  category: three
+
+two:
+  title: Alien
+  description: Alien from alien
+  user: admin
+  category: one
+
+three:
+  title: Alien
+  description: Alien from alien
+  user: admin
+  category: one
+  state: "draft"

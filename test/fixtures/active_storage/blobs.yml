@@ -1,0 +1,1 @@
+first_image_blob: <%= ActiveStorage::FixtureSet.blob filename: "empty_image0.png", service_name: "test", content_type: 'image/png' %>
