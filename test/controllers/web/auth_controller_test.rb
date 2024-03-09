@@ -25,10 +25,8 @@ module Web
       assert_response :redirect
 
       user = User.find_by(email: auth_hash[:info][:email].downcase)
-      oauth_data = OauthDatum.find_by(uid: auth_hash[:uid], provider: auth_hash[:provider], user:)
 
       assert user
-      assert oauth_data
       assert signed_in?
     end
   end

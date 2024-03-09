@@ -28,7 +28,6 @@ module Web
       return user if user.persisted?
 
       user.assign_attributes(build_auth_user_params(auth))
-      user.oauth_data.build(build_oauth_data_params(auth))
 
       user
     end
@@ -38,14 +37,6 @@ module Web
         name: auth['info']['name'],
         email: auth['info']['email'],
         admin: true
-      }
-    end
-
-    def build_oauth_data_params(auth)
-      {
-        provider: auth['provider'],
-        uid: auth['uid'],
-        response_body: auth
       }
     end
   end

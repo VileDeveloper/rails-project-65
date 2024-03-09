@@ -2,17 +2,10 @@
 
 return if User.any?
 
-10.times do |uid|
-  user =
-    User.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      admin: true
-    )
-
-  OauthDatum.create!(
-    user:,
-    uid:,
-    provider: :github
+10.times do |_uid|
+  User.create!(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    admin: true
   )
 end

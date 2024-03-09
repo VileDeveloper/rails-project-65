@@ -7,7 +7,6 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "pathToBundler": "/Users/viledev/.rvm/rubies/ruby-3.2.2/bin/bundle",
-            "pathToRDebugIDE": "/Users/viledev/.rvm/gems/ruby-3.2.2/bin/rdebug-ide",
             "useBundler": true,
             "program": "${workspaceRoot}/bin/rails",
             "args": [

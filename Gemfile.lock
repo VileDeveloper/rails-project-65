@@ -114,6 +114,9 @@ GEM
     cssbundling-rails (1.4.0)
       railties (>= 6.0.0)
     date (3.3.4)
+    debase (0.2.5.beta2)
+      debase-ruby_core_source (>= 0.10.12)
+    debase-ruby_core_source (3.2.1)
     debug (1.9.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -332,6 +335,8 @@ GEM
     rubocop-slim (0.2.2)
       rubocop (~> 1.45)
       slimi (~> 0.7)
+    ruby-debug-ide (0.7.3)
+      rake (>= 0.8.1)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.0)
       ffi (~> 1.12)
@@ -426,6 +431,7 @@ DEPENDENCIES
   bootsnap
   capybara
   cssbundling-rails
+  debase
   debug
   dotenv-rails
   faker
@@ -450,6 +456,7 @@ DEPENDENCIES
   rubocop-minitest
   rubocop-rails
   rubocop-slim
+  ruby-debug-ide
   sassc-rails
   selenium-webdriver
   simple_form
