@@ -448,7 +448,7 @@ DEPENDENCIES
   pry
   puma (~> 5.0)
   pundit
-  rails (~> 7.1)
+  rails (~> 7.1.2)
   rails-i18n
   ransack
   rollbar

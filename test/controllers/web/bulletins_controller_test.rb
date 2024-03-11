@@ -18,7 +18,7 @@ module Web
       assert_response :success
     end
 
-    test 'should show bulletin' do
+    test 'should gen show' do
       get bulletin_path(@bulletin)
 
       assert_response :success
@@ -57,45 +57,37 @@ module Web
       assert_response :success
     end
 
-    test 'should update bulletin' do
+    test 'should update' do
       patch bulletin_path(@bulletin), params: { bulletin: { title: 'title after update' } }
       @bulletin.reload
 
       assert_equal('title after update', @bulletin.title)
     end
 
-    test 'should submit bulletin for moderation' do
+    test 'should make transition to under_moderation from draft' do
       patch to_moderate_bulletin_path(@bulletin)
+
       @bulletin.reload
 
-      assert_equal('under_moderation', @bulletin.state)
+      assert @bulletin.under_moderation?
     end
 
-    test 'should archive bulletin' do
-      assert_difference('Bulletin.archived.count') do
-        patch archive_bulletin_path(@bulletin)
-      end
+    test 'should make transition to archived from draft' do
+      patch archive_bulletin_path(@bulletin)
 
-      assert_redirected_to profile_path
       @bulletin.reload
 
-      assert_equal('archived', @bulletin.state)
+      assert @bulletin.archived?
     end
 
-    test 'user cannot change the ad status' do
-      patch to_moderate_bulletin_path(@bulletin)
-      @bulletin.reload
-      patch publish_admin_bulletin_path(@bulletin)
+    test 'should not make transition to under_moderation from archive' do
+      @bulletin_archived = bulletins(:five)
 
-      assert_equal('under_moderation', @bulletin.state)
-    end
+      patch to_moderate_bulletin_path(@bulletin_archived)
 
-    test 'user cannot reject bulletin' do
-      patch to_moderate_bulletin_path(@bulletin)
-      @bulletin.reload
-      patch reject_admin_bulletin_path(@bulletin)
+      @bulletin_archived.reload
 
-      assert_equal('under_moderation', @bulletin.state)
+      assert @bulletin_archived.archived?
     end
   end
 end

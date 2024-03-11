@@ -13,31 +13,31 @@ module Web
         sign_in(@user)
       end
 
-      test 'admin should be get categories routes' do
+      test 'admin should get index' do
         get admin_categories_path
 
         assert_response :success
       end
 
-      test 'admin must have access to the creation category route' do
+      test 'admin should get new' do
         get new_admin_category_path
 
         assert_response :success
       end
 
-      test 'admin must have access to view category' do
+      test 'admin should get edit' do
         get edit_admin_category_path(@category)
 
         assert_response :success
       end
 
-      test 'admin should be create category' do
+      test 'admin should create category' do
         post admin_categories_url, params: { category: { name: 'Новая категория' } }
 
         assert(Category.find_by(name: 'Новая категория'))
       end
 
-      test 'admin should be destroy category' do
+      test 'admin should destroy category' do
         delete admin_category_url(@category)
 
         assert_nil(Category.find_by(name: @category.name))
