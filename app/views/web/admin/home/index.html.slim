@@ -19,11 +19,13 @@
             td
               | #{time_ago_in_words(bulletin.created_at.to_time)}
             td
-              - if bulletin.state == 'under_moderation'
+              - if bulletin.may_publish?
                 = link_to t('web.admin.bulletins.index.actions.publish'), publish_admin_bulletin_path(bulletin), class: 'me-2',
-                  data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_publish') }
+                        data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_publish') }
+              - if bulletin.may_reject?
                 = link_to t('web.admin.bulletins.index.actions.reject'), reject_admin_bulletin_path(bulletin), class: 'me-2',
                         data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_reject') }
-              = link_to t('web.admin.bulletins.index.actions.archive'), archive_bulletin_path(bulletin), data: { turbo_method: 'patch',
-                      turbo_confirm: t('web.admin.bulletins.index.confirm_archive') }, class: 'me-2 text-danger'
+              - if bulletin.may_archive?
+                = link_to t('web.admin.bulletins.index.actions.archive'), archive_bulletin_path(bulletin),
+                        data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_archive') }, class: 'me-2 text-danger'
   = paginate @bulletins

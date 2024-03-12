@@ -1,11 +1,5 @@
 .col-md-3
   ul.nav.flex-column.nav-pills
-    li.nav-item
-      = link_to t('navbar.bulletin_on_moderation'), admin_root_path,
-class: "nav-link link-dark#{current_page?(admin_root_path) ? ' active' : ''}"
-    li.nav-item
-      = link_to t('navbar.all_bulletins'), admin_bulletins_path,
-class: "nav-link link-dark#{current_page?(admin_bulletins_path) ? ' active' : ''}"
-    li.nav-item
-      = link_to t('navbar.all_categories'), admin_categories_path,
-class: "nav-link link-dark#{current_page?(admin_categories_path) ? ' active' : ''}"
+    = nav_menu_item(t('navbar.bulletin_on_moderation'), admin_root_path)
+    = nav_menu_item(t('navbar.all_bulletins'), admin_bulletins_path)
+    = nav_menu_item(t('navbar.all_categories'), admin_categories_path)
