@@ -26,6 +26,6 @@
                 = link_to t('web.admin.bulletins.index.actions.reject'), reject_admin_bulletin_path(bulletin), class: 'me-2',
                         data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_reject') }
               - if bulletin.may_archive?
-                = link_to t('web.admin.bulletins.index.actions.archive'), archive_bulletin_path(bulletin),
-                        data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_archive') }, class: 'me-2 text-danger'
+                = link_to t('web.admin.bulletins.index.actions.archive'), archive_bulletin_path(bulletin), class: 'me-2 text-danger',
+                        data: { turbo_method: 'patch', turbo_confirm: t('web.admin.bulletins.index.confirm_archive') }
   = paginate @bulletins
